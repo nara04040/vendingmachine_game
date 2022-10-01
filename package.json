@@ -25,9 +25,5 @@
   "engines": {
     "npm": ">=6.0.0",
     "node": ">=14.0.0"
-  },
-  "main": "index.js",
-  "directories": {
-    "test": "test"
   }
 }
