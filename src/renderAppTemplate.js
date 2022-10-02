@@ -7,16 +7,6 @@ const makeTitle = () => {
   return $title;
 };
 
-const makeButton = (text, id) => {
-  const $button = document.createElement('button');
-  $button.appendChild(document.createTextNode(text));
-
-  if (id) {
-    $button.setAttribute('id', id);
-  }
-  return $button;
-};
-
 const makeMenuTab = () => {
   const $menuTab = document.createElement('div');
 
