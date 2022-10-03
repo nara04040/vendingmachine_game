@@ -69,6 +69,47 @@ const clearProductInput = () => {
   document.getElementById(DOM_SELECTOR.productQuantityInput).value = '';
 };
 
+const makeProductManageTableTd = (className, text) => {
+  const $td = document.createElement('td');
+  $td.className = className;
+  $td.appendChild(document.createTextNode(text));
+
+  return $td;
+};
+
+const makeProductManageItem = (name, price, quantity) => {
+  const $productManageItem = document.createElement('tr');
+  $productManageItem.className = DOM_SELECTOR.$productManageItem;
+
+  const $productManageName = makeProductManageTableTd(DOM_SELECTOR.$productManageName, name);
+  const $productManagePrice = makeProductManageTableTd(DOM_SELECTOR.$productManageName, price);
+  const $productManageQuantity = makeProductManageTableTd(
+    DOM_SELECTOR.$productManageQuantity,
+    quantity,
+  );
+  $productManageItem.appendChild($productManageName);
+  $productManageItem.appendChild($productManagePrice);
+  $productManageItem.appendChild($productManageQuantity);
+  return $productManageItem;
+};
+
+const removeProductManageItems = () => {
+  const $productManageItems = document.getElementsByClassName(DOM_SELECTOR.$productManageItem);
+
+  while ($productManageItem.length > 0) {
+    $productManageItems[0].remove();
+  }
+};
+
+const printProductManageTable = (productItem) => {
+  const $productManageTable = document.getElementById(DOM_SELECTOR.productManageTable);
+  removeProductManageItems();
+
+  for (let name in productItem) {
+    const $productManageItem = makeProductManageItem(name, productItems[name]);
+  }
+};
+
 const attachProductAddEvent = (event) => {
   const $productAddButton = document.getElementById(DOM_SELECTOR.productAddButton);
 
